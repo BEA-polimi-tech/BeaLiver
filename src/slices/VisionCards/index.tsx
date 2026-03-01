@@ -18,7 +18,7 @@ const VisionCards: FC<VisionCardsProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="py-12 px-4 space-y-12"
+      className="py-8 md:py-10 lg:py-12 space-y-8 md:space-y-10 lg:space-y-12"
     >
       {cards.map((card, index) => (
         <div
@@ -39,10 +39,10 @@ const VisionCards: FC<VisionCardsProps> = ({ slice }) => {
 
           {/* Colonna Testo */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center">
-            <div className="text-2xl font-bold mb-4 text-white">
+            <div className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white">
               <PrismicRichText field={card.title} />
             </div>
-            <div className="text-gray-300">
+            <div className="text-sm md:text-base text-gray-300">
               <PrismicRichText field={card.body} />
             </div>
           </div>

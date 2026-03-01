@@ -25,7 +25,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
   };
 
   return (
-    <section className="py-24 w-full">
+    <section className="py-12 md:py-16 lg:py-24 w-full">
       {/* Definizione Animazione CSS */}
       <style jsx global>{`
         @keyframes slideUpFade {
@@ -45,8 +45,8 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
 
       {/* Variant: projectPage => grid 2 per row, foto sopra, testo sotto */}
       {slice.variation === "projectPage" && (
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div className="mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
             {cards.map((card, idx) => (
               <article key={idx} className="flex flex-col">
                 <div className="w-full aspect-video rounded-lg overflow-hidden bg-gray-800">
@@ -76,72 +76,125 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
 
       {/* Variant: default => Carosello */}
       {slice.variation !== "projectPage" && hasCards && currentCard && (
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="mx-auto">
           {/* Header Sezione */}
-          <div className="text-center mb-16 space-y-2">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16 space-y-2">
             {slice.primary.abovetitle && (
               <div className="text-gray-400 text-sm">
                 <PrismicRichText field={slice.primary.abovetitle} />
               </div>
             )}
             {slice.primary.title && (
-              <div className="text-white text-2xl font-light neutralFace">
+              <div className="text-white text-xl md:text-2xl font-light neutralFace">
                 <PrismicRichText field={slice.primary.title} />
               </div>
             )}
           </div>
 
           {/* Carosello Card */}
-          <div className="relative bg-transparent mb-16">
-            {/* 
-               WRAPPER ANIMATO:
-               1. key={currentIndex}: Forza React a ricreare il div quando l'indice cambia.
-               2. animate-slide-up-fade: Applica l'animazione definita sopra.
-            */}
+          <div className="relative bg-transparent mb-8 md:mb-12 lg:mb-16">
             <div key={currentIndex} className="animate-slide-up-fade">
-              {/* Card Content Flex Container */}
-              <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
-                {/* Sinistra: Immagine */}
-                <div className="w-full lg:w-1/2 relative aspect-square rounded-lg overflow-hidden shadow-2xl">
-                  <PrismicNextImage
-                    field={currentCard.image}
-                    className="object-cover w-full h-full"
-                    imgixParams={{ fit: "crop" }}
-                    priority
-                  />
-                </div>
-
-                {/* Destra: Contenuto Testuale */}
-                <div className="w-full lg:w-1/2 flex flex-col justify-center text-left space-y-8 py-4">
-                  {/* Categoria e Titolo */}
-                  <div>
-                    <div className="text-gray-400 text-xs mb-2">
-                      <PrismicRichText field={currentCard.category} />
-                    </div>
-                    <div className="text-white text-xl font-light">
-                      <PrismicRichText field={currentCard.title} />
-                    </div>
+              {/* MOBILE: 1 card compatta (visibile solo sotto md) */}
+              <div className="block md:hidden">
+                <div className="flex flex-col gap-4">
+                  <div className="w-full relative aspect-4/3 rounded-lg overflow-hidden shadow-2xl">
+                    <PrismicNextImage
+                      field={currentCard.image}
+                      className="object-cover w-full h-full"
+                      imgixParams={{ fit: "crop" }}
+                      priority
+                    />
                   </div>
-                  <div className="text-gray-300 text-sm font-light">
-                    <PrismicRichText field={currentCard.description} />
-                  </div>
-
-                  <div>
-                    <div className="text-gray-400 text-xs mb-2">
-                      Competences:
+                  <div className="space-y-3">
+                    <div>
+                      <div className="text-gray-400 text-xs mb-1">
+                        <PrismicRichText field={currentCard.category} />
+                      </div>
+                      <div className="text-white text-lg font-light">
+                        <PrismicRichText field={currentCard.title} />
+                      </div>
                     </div>
                     <div className="text-gray-300 text-sm font-light">
-                      {/* @ts-expect-error competenze exists only in default variant */}
-                      <PrismicRichText field={currentCard.competenze} />
+                      <PrismicRichText field={currentCard.description} />
                     </div>
                   </div>
-                  <div>
-                    <div className="text-gray-400 text-xs mb-2">
-                      Technology:
+                </div>
+              </div>
+
+              {/* TABLET: 2 card compatte affiancate (visibile solo md → lg) */}
+              <div className="hidden md:grid md:grid-cols-2 md:gap-6 lg:hidden">
+                {[0, 1].map((offset) => {
+                  const card = cards[(currentIndex + offset) % cards.length];
+                  return (
+                    <article key={offset} className="flex flex-col">
+                      <div className="w-full aspect-video rounded-lg overflow-hidden bg-gray-800 shadow-xl">
+                        <PrismicNextImage
+                          field={card.image}
+                          className="object-cover w-full h-full"
+                          imgixParams={{ fit: "crop" }}
+                          priority={offset === 0}
+                        />
+                      </div>
+                      <div className="mt-4 space-y-2">
+                        <div className="text-gray-400 text-xs">
+                          <PrismicRichText field={card.category} />
+                        </div>
+                        <div className="text-white text-lg font-light">
+                          <PrismicRichText field={card.title} />
+                        </div>
+                        <div className="text-gray-300 text-sm font-light">
+                          <PrismicRichText field={card.description} />
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+
+              {/* DESKTOP: layout dettagliato immagine + testo affiancati (da lg in su) */}
+              <div className="hidden lg:block">
+                <div className="flex flex-row gap-16 items-start">
+                  {/* Sinistra: Immagine */}
+                  <div className="w-1/2 relative aspect-square rounded-lg overflow-hidden shadow-2xl">
+                    <PrismicNextImage
+                      field={currentCard.image}
+                      className="object-cover w-full h-full"
+                      imgixParams={{ fit: "crop" }}
+                      priority
+                    />
+                  </div>
+
+                  {/* Destra: Contenuto Testuale */}
+                  <div className="w-1/2 flex flex-col justify-center text-left space-y-8 py-4">
+                    <div>
+                      <div className="text-gray-400 text-xs mb-2">
+                        <PrismicRichText field={currentCard.category} />
+                      </div>
+                      <div className="text-white text-xl font-light">
+                        <PrismicRichText field={currentCard.title} />
+                      </div>
+                    </div>
+                    <div className="text-gray-300 text-sm font-light">
+                      <PrismicRichText field={currentCard.description} />
+                    </div>
+
+                    <div>
+                      <div className="text-gray-400 text-xs mb-2">
+                        Competences:
+                      </div>
+                      <div className="text-gray-300 text-sm font-light">
+                        {/* @ts-expect-error competenze exists only in default variant */}
+                        <PrismicRichText field={currentCard.competenze} />
+                      </div>
                     </div>
                     <div>
-                      {/* @ts-expect-error tecnologyimg exists only in default variant */}
-                      <PrismicNextImage field={currentCard.tecnologyimg} />
+                      <div className="text-gray-400 text-xs mb-2">
+                        Technology:
+                      </div>
+                      <div>
+                        {/* @ts-expect-error tecnologyimg exists only in default variant */}
+                        <PrismicNextImage field={currentCard.tecnologyimg} />
+                      </div>
                     </div>
                   </div>
                 </div>

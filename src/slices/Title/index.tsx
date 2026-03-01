@@ -20,11 +20,11 @@ const Title: FC<TitleProps> = ({ slice }) => {
       className="text-white text-center"
     >
       {overtitle && (
-        <div className="text-gray-400 pt-12 mb-4 text-sm">
+        <div className="text-gray-400 pt-8 md:pt-10 lg:pt-12 mb-3 md:mb-4 text-sm">
           <PrismicRichText field={overtitle} />
         </div>
       )}
-      <div className="neutralFace text-2xl mb-8">
+      <div className="neutralFace text-xl md:text-2xl mb-6 md:mb-8">
         <PrismicRichText field={title} />
       </div>
     </section>

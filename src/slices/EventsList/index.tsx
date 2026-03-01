@@ -24,7 +24,7 @@ const Filters: FC<FiltersProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="py-12"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentEvents.map((item, index) => (
           <div key={index} className="flex flex-col">
             <div className="aspect-video overflow-hidden rounded-lg">
@@ -49,12 +49,12 @@ const Filters: FC<FiltersProps> = ({ slice }) => {
         ))}
       </div>
 
-      <div className="text-center mb-8 text-white pt-20">
+      <div className="text-center mb-6 md:mb-8 text-white pt-12 md:pt-20">
         <PrismicRichText field={above_title_past_events} />
         <PrismicRichText field={title_past_events} />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {pastEvents.map((item, index) => (
           <div key={index} className="flex flex-col">
             <div className="aspect-video overflow-hidden rounded-lg">

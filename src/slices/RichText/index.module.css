@@ -1,7 +1,14 @@
 .richtext {
-  max-width: 600px;
-  margin: 6em auto;
+  max-width: 100%;
+  margin: 3em auto;
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+@media (min-width: 768px) {
+  .richtext {
+    max-width: 600px;
+    margin: 6em auto;
+  }
 }

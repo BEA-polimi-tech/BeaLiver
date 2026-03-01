@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-xl: 1200px;
+}
+
 @font-face {
   font-family: "NeutralFace";
   src: url("/fonts/NeutralFace.otf") format("opentype");

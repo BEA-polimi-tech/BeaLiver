@@ -16,16 +16,16 @@ const EventsIntroduction: FC<EventsIntroductionProps> = ({ slice }) => {
       <div className="text-center text-gray-400 mb-4 text-sm">
         <PrismicRichText field={above_title} />
       </div>
-      <div className="text-center neutralFace text-2xl mb-8">
+      <div className="text-center neutralFace text-xl md:text-2xl mb-6 md:mb-8">
         <PrismicRichText field={title} />
       </div>
-      <div className="mb-8">
+      <div className="text-sm md:text-base mb-6 md:mb-8">
         <PrismicRichText field={events_description} />
       </div>
-      <div className="text-xl mb-4">
+      <div className="text-lg md:text-xl mb-3 md:mb-4">
         <PrismicRichText field={tracks_title} />
       </div>
-      <div className="mb-16">
+      <div className="text-sm md:text-base mb-10 md:mb-16">
         <PrismicRichText field={tracks_description} />
       </div>
     </section>

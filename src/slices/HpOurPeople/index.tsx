@@ -28,7 +28,7 @@ const HpPeople: FC<HpPeopleProps> = ({ slice }) => {
     : [items[currentIndex], items[(currentIndex + 1) % items.length]];
 
   return (
-    <section className="py-20 w-full">
+    <section className="py-12 md:py-16 lg:py-20 w-full">
       {/* Stile locale per garantire l'animazione senza config tailwind extra */}
       <style jsx global>{`
         @keyframes fadeSlide {
@@ -47,11 +47,11 @@ const HpPeople: FC<HpPeopleProps> = ({ slice }) => {
       `}</style>
 
       <div className="">
-        <div className="text-center mb-20 space-y-2">
-          <div className="text-gray-400 text-sm ">
+        <div className="text-center mb-10 md:mb-16 lg:mb-20 space-y-2">
+          <div className="text-gray-400 text-sm">
             <PrismicRichText field={slice.primary.above_title} />
           </div>
-          <div className="text-white text-2xl uppercase font-extralight">
+          <div className="text-white text-xl md:text-2xl uppercase font-extralight">
             <PrismicRichText field={slice.primary.title} />
           </div>
         </div>
@@ -59,21 +59,21 @@ const HpPeople: FC<HpPeopleProps> = ({ slice }) => {
         {/* Aggiunto key={currentIndex} e la classe animate-fade-slide */}
         <div
           key={isPeoplePage ? "all" : currentIndex}
-          className={`grid ${isPeoplePage ? "grid-cols-2" : "grid-cols-1 lg:grid-cols-2"} gap-12 mb-16 ${!isPeoplePage && "animate-fade-slide"}`}
+          className={`grid ${isPeoplePage ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1 lg:grid-cols-2"} gap-8 md:gap-12 mb-8 md:mb-16 ${!isPeoplePage && "animate-fade-slide"}`}
         >
           {currentItems.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col sm:flex-row gap-8 items-start"
+              className="flex flex-col sm:flex-row gap-4 md:gap-8 items-center sm:items-start"
             >
-              <div className="w-36 shrink-0 aspect-square relative overflow-hidden">
+              <div className="w-28 md:w-36 shrink-0 aspect-square relative overflow-hidden">
                 <PrismicNextImage
                   field={item.person_image}
                   className="object-cover w-full h-full filter brightness-75"
                 />
               </div>
 
-              <div className="flex flex-col">
+              <div className="flex flex-col text-center sm:text-left">
                 <div className="text-white text-lg font-extralight mb-1">
                   <PrismicRichText field={item.name} />
                 </div>
