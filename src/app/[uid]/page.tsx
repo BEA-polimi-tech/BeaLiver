@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { asText, filter } from "@prismicio/client";
+import { filter } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
@@ -28,12 +28,8 @@ export async function generateMetadata({
   const page = await client.getByUID("page", uid).catch(() => notFound());
 
   return {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
-    title: asText(page.data.title),
     description: page.data.meta_description,
     openGraph: {
-      title: page.data.meta_title ?? undefined,
       images: [{ url: page.data.meta_image.url ?? "" }],
     },
   };

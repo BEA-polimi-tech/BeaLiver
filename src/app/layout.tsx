@@ -1,7 +1,16 @@
+import type { Metadata } from "next";
+
 import "./global.css";
 import { createClient, repositoryName } from "@/prismicio";
 import { PrismicPreview } from "@prismicio/next";
 import Header from "./Header";
+
+export const metadata: Metadata = {
+  title: "Biomedical Engineering Association - PoliMI",
+  openGraph: {
+    title: "Biomedical Engineering Association - PoliMI",
+  },
+};
 
 export default async function RootLayout({
   children,
@@ -13,8 +22,12 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className="bg-[url('/Images/background.png')] bg-cover bg-top min-h-screen">
-        <div className="w-full mx-auto px-5 md:max-w-3xl md:px-6 lg:max-w-5xl lg:px-10 xl:max-w-[1200px] xl:px-12">
+      <body className="relative min-h-screen overflow-x-hidden bg-[#010017]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none fixed inset-0 -z-10 bg-[#010017] bg-[url('/Images/background.png')] bg-cover bg-[center_top] bg-no-repeat"
+        />
+        <div className="relative z-10 w-full mx-auto px-5 md:max-w-3xl md:px-6 lg:max-w-5xl lg:px-10 xl:max-w-[1200px] xl:px-12">
           <Header settings={settings} />
           <main>{children}</main>
           <PrismicPreview repositoryName={repositoryName} />

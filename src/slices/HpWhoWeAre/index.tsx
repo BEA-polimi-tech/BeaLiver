@@ -7,7 +7,7 @@ export type HpAboutProps = SliceComponentProps<Content.HpAboutSlice>;
 
 const HpAbout: FC<HpAboutProps> = ({ slice }) => {
   return (
-    <div className="py-12 md:py-16 lg:py-24">
+    <div id="home-who-we-are" className="py-12 md:py-16 lg:py-24 scroll-mt-8">
       <div className="text-gray-400 text-sm mx-auto text-center mb-2">
         <PrismicRichText field={slice.primary.above_title} />
       </div>

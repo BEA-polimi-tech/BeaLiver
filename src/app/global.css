@@ -24,12 +24,29 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 h1 {
   font-family: "NeutralFace", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .neutralFace {
   font-family: "NeutralFace", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.home-hero-title,
+.home-hero-title :is(p, h1, h2, h3, h4, h5, h6) {
+  font-family: "NeutralFace", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.3333333333;
+  text-transform: uppercase;
+  background: linear-gradient(101.92deg, #ffffff 11.14%, rgba(255, 255, 255, 0) 107%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 strong {
