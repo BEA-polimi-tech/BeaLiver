@@ -9,14 +9,14 @@ const BecomeAMember: FC<BecomeAMemberProps> = ({ slice }) => {
   const isWithQR = slice.variation === "withQr";
 
   return (
-    <section className="py-12 md:py-16 lg:py-24 w-full">
+    <section className="pt-6 pb-12 md:pt-8 md:pb-16 lg:pt-10 lg:pb-24 w-full">
       <div>
         {/* Header Sezione */}
-        <div className="text-center mb-8 md:mb-12 lg:mb-16 space-y-2">
-          <div className="text-gray-400 text-sm">
+        <div className="text-center mb-8 md:mb-10 lg:mb-12">
+          <div className="text-white/65 text-sm mb-3 md:mb-4">
             <PrismicRichText field={slice.primary.abovetitle} />
           </div>
-          <div className="text-white text-xl md:text-2xl uppercase">
+          <div className="neutralFace text-white text-xl md:text-2xl uppercase tracking-wide">
             <PrismicRichText field={slice.primary.title} />
           </div>
         </div>
@@ -50,7 +50,7 @@ const BecomeAMember: FC<BecomeAMemberProps> = ({ slice }) => {
                       className="w-6 h-6 object-contain"
                     />
                   </div>
-                  <div className="text-gray-200 text-base md:text-lg font-light">
+                  <div className="text-white/85 text-base md:text-lg font-light">
                     <PrismicRichText field={item.description} />
                   </div>
                 </div>
@@ -80,7 +80,7 @@ const BecomeAMember: FC<BecomeAMemberProps> = ({ slice }) => {
                 )}
               </div>
 
-              <div className="text-gray-400 text-xs uppercase tracking-widest mb-6 md:mb-10 mt-4">
+              <div className="text-white/65 text-xs uppercase tracking-widest mb-6 md:mb-10 mt-4">
                 <PrismicRichText field={slice.primary.bealiver_under_title} />
               </div>
 
@@ -93,7 +93,7 @@ const BecomeAMember: FC<BecomeAMemberProps> = ({ slice }) => {
                         className="w-6 h-6 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1"
                       />
                     </div>
-                    <div className="text-gray-200 text-base md:text-lg font-light">
+                    <div className="text-white/85 text-base md:text-lg font-light">
                       <PrismicRichText field={item.description} />
                     </div>
                   </div>

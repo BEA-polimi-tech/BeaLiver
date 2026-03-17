@@ -19,6 +19,7 @@ export default async function RootLayout({
 }>) {
   const client = createClient();
   const settings = await client.getSingle("header");
+  const currentYear = new Date().getFullYear();
 
   return (
     <html lang="en">
@@ -30,6 +31,10 @@ export default async function RootLayout({
         <div className="relative z-10 w-full mx-auto px-5 md:max-w-3xl md:px-6 lg:max-w-5xl lg:px-10 xl:max-w-[1200px] xl:px-12">
           <Header settings={settings} />
           <main>{children}</main>
+          <footer className="mt-16 border-t border-white/10 py-8 text-center text-sm text-gray-400">
+            <p>Biomedical Engineering Association - PoliMI</p>
+            <p className="mt-2 text-xs text-gray-500">&copy; {currentYear}</p>
+          </footer>
           <PrismicPreview repositoryName={repositoryName} />
         </div>
       </body>

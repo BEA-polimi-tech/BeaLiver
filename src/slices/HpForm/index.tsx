@@ -31,13 +31,13 @@ const HpForm: FC<HpFormProps> = ({ slice }) => {
     "w-full bg-white/10 px-3 py-3 text-white placeholder-white focus:outline-none focus:bg-white/20 focus:border-white/30 transition-all text-sm font-light";
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 w-full relative overflow-hidden">
+    <section className="pt-6 pb-12 md:pt-8 md:pb-16 lg:pt-10 lg:pb-20 w-full relative overflow-hidden">
       <div className="mx-auto">
-        <div className="text-center mb-12 md:mb-16 lg:mb-24 space-y-4">
-          <div className="text-gray-400 text-sm">
+        <div className="text-center mb-8 md:mb-10 lg:mb-12">
+          <div className="text-gray-400 text-sm mb-3 md:mb-4">
             <PrismicRichText field={slice.primary.abovetitle} />
           </div>
-          <div className="text-white text-lg md:text-xl font-light">
+          <div className="text-white text-xl md:text-2xl font-light tracking-wide">
             <PrismicRichText field={slice.primary.title} />
           </div>
         </div>

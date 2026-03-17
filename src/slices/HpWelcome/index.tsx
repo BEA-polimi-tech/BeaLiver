@@ -8,7 +8,7 @@ export type WelcomeProps = SliceComponentProps<Content.WelcomeSlice>;
 const Welcome: FC<WelcomeProps> = ({ slice }) => {
   return (
     <>
-      <div className="-mt-2 md:-mt-4 lg:-mt-6 flex flex-col lg:flex-row mx-auto justify-between items-center pb-10 lg:pb-20 gap-8 lg:gap-0">
+      <div className="-mt-2 md:-mt-4 lg:-mt-6 flex flex-col lg:flex-row mx-auto justify-between items-center pb-4 md:pb-5 lg:pb-6 gap-8 lg:gap-0">
         <span className="p-0 md:p-4 lg:p-6 text-white text-center lg:text-left">
           <div className="text-gray-400 pb-3 text-sm">
             <PrismicRichText field={slice.primary.above_title} />
@@ -33,7 +33,7 @@ const Welcome: FC<WelcomeProps> = ({ slice }) => {
       <div>
         <a
           href="#home-who-we-are"
-          className="group mt-16 md:mt-24 lg:mt-36 inline-flex w-full flex-col items-center text-white transition-opacity duration-300 hover:opacity-80 focus:outline-none focus-visible:opacity-80"
+          className="group mt-3 md:mt-5 lg:mt-6 inline-flex w-full flex-col items-center text-white transition-opacity duration-300 hover:opacity-80 focus:outline-none focus-visible:opacity-80"
           aria-label="Find out more"
         >
           <div className="mx-auto text-center text-sm font-light">
