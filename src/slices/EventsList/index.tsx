@@ -61,7 +61,7 @@ const Filters: FC<FiltersProps> = ({ slice }) => {
               <PrismicRichText field={item.item_title} />
             </div>
 
-            <div className="text-gray-600 mb-2">
+            <div className="text-gray-400 mb-2">
               <PrismicRichText field={item.item_description} />
             </div>
 
@@ -91,7 +91,7 @@ const Filters: FC<FiltersProps> = ({ slice }) => {
               <PrismicRichText field={item.item_title} />
             </div>
 
-            <div className="text-gray-600 mb-2">
+            <div className="text-gray-400 mb-2">
               <PrismicRichText field={item.item_description} />
             </div>
 
