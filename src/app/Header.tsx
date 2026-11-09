@@ -38,7 +38,7 @@ const Header: FC<HeaderProps> = ({ settings }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className={`sticky top-0 z-50 w-full py-4 lg:py-6 bg-[#010017]/95 backdrop-blur-md border-b transition-colors ${scrolled ? "border-white/40" : "border-transparent"}`}>
+    <header className={`sticky top-0 z-50 w-full py-4 lg:py-6 bg-transparent backdrop-blur-md border-b transition-colors ${scrolled ? "border-white/40" : "border-transparent"}`}>
       <nav className="mx-auto flex items-center justify-between">
         {/* LOGO */}
         <div className="shrink-0 w-12 lg:w-16">
