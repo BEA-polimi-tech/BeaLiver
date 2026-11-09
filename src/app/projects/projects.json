@@ -1,0 +1,402 @@
+[
+  {
+    "slug": "leg-aid-exoskeleton",
+    "name": "Leg Aid Exoskeleton",
+    "type": "Project",
+    "contact": "-",
+    "sections": [
+      {
+        "heading": "Overview",
+        "body": "A student project exploring a wearable lower-limb exoskeleton, based initially on the open-source OpenExo platform."
+      },
+      {
+        "heading": "The challenge",
+        "body": "Explore ways to support movement while addressing comfort, weight, power use and coordination with the wearer."
+      },
+      {
+        "heading": "Our approach",
+        "body": "The initial technical focus is the hip joint. The project combines mechanical design, electronics and automation; possible future control approaches include movement sensing and muscle signals."
+      },
+      {
+        "heading": "Current stage and progress",
+        "body": "The project is listed as execution in progress. Assembly and testing progress needs confirmation."
+      },
+      {
+        "heading": "Roadmap",
+        "body": "The existing plan describes obtaining and manufacturing parts, assembling a hip prototype and considering further development after the initial build."
+      },
+      {
+        "heading": "Expected outcomes and impact",
+        "body": "A hip exoskeleton prototype and practical experience in robotics, electronics and control."
+      },
+      {
+        "heading": "Team and partners",
+        "body": "The project documentation describes a collaboration between BEA and AEA, with mechanics, electronics and automation teams. Named participants need confirmation."
+      },
+      {
+        "heading": "Resources and collaboration",
+        "body": "The project uses the open-source OpenExo resources. Current funding and support needs: -"
+      }
+    ]
+  },
+  {
+    "slug": "bea-band",
+    "name": "BEA Band",
+    "type": "Project",
+    "contact": "-",
+    "sections": [
+      {
+        "heading": "Overview",
+        "body": "A student-led wearable project exploring how to monitor physiological signals and support personal insights while considering user privacy."
+      },
+      {
+        "heading": "The challenge",
+        "body": "Bring together multiple sensing and data-processing functions in a compact wearable system."
+      },
+      {
+        "heading": "Our approach",
+        "body": "The proposed system combines sensors for heart rate and oxygenation, movement, skin temperature and skin conductance, with software for analysis. Local data processing is part of the project concept."
+      },
+      {
+        "heading": "Current stage and progress",
+        "body": "The project is listed as execution in progress. Prototype and validation status need confirmation."
+      },
+      {
+        "heading": "Roadmap",
+        "body": "The documented direction includes integrating components into a miniaturised printed circuit board and developing the associated software."
+      },
+      {
+        "heading": "Expected outcomes and impact",
+        "body": "A wearable prototype and an integrated approach to collecting and interpreting physiological data."
+      },
+      {
+        "heading": "Team and partners",
+        "body": "The documentation describes hardware, firmware and software work across a multidisciplinary team. Named members: -"
+      },
+      {
+        "heading": "Resources and collaboration",
+        "body": "Funding, equipment and collaboration needs: -"
+      }
+    ]
+  },
+  {
+    "slug": "3d-printing-course",
+    "name": "3D Printing Course 2.0",
+    "type": "Course",
+    "contact": "-",
+    "sections": [
+      {
+        "heading": "Overview",
+        "body": "A practical course introducing students to 3D printing and its engineering applications."
+      },
+      {
+        "heading": "The challenge",
+        "body": "Help students understand the journey from a digital model to a printable physical object."
+      },
+      {
+        "heading": "Our approach",
+        "body": "The proposed programme covers printing technologies, materials, modelling, printability, slicing, printer use and analysis of printed results. Group activities apply these skills to a design challenge."
+      },
+      {
+        "heading": "Current stage and progress",
+        "body": "The project is listed as execution in progress. Current-edition dates and completed activities need confirmation."
+      },
+      {
+        "heading": "Roadmap",
+        "body": "The documented course plan progresses from introductory lessons to modelling, slicing, printing and discussion of results. The current schedule needs confirmation."
+      },
+      {
+        "heading": "Expected outcomes and impact",
+        "body": "Hands-on skills in preparing and evaluating 3D-printed engineering components."
+      },
+      {
+        "heading": "Team and partners",
+        "body": "An earlier course plan describes BEA, NINE and independent Politecnico di Milano students. Current organisers: -"
+      },
+      {
+        "heading": "Resources and collaboration",
+        "body": "The course needs access to 3D printing equipment and materials. Confirmed support and budget: -"
+      }
+    ]
+  },
+  {
+    "slug": "fes-bike",
+    "name": "FES-Bike",
+    "type": "Project",
+    "contact": "-",
+    "sections": [
+      {
+        "heading": "Overview",
+        "body": "-"
+      },
+      {
+        "heading": "The challenge",
+        "body": "-"
+      },
+      {
+        "heading": "Our approach",
+        "body": "-"
+      },
+      {
+        "heading": "Current stage and progress",
+        "body": "The project is listed as execution in progress in the project database."
+      },
+      {
+        "heading": "Roadmap",
+        "body": "-"
+      },
+      {
+        "heading": "Expected outcomes and impact",
+        "body": "-"
+      },
+      {
+        "heading": "Team and partners",
+        "body": "-"
+      },
+      {
+        "heading": "Resources and collaboration",
+        "body": "-"
+      }
+    ]
+  },
+  {
+    "slug": "meeva",
+    "name": "MEEVA",
+    "type": "Project",
+    "contact": "-",
+    "sections": [
+      {
+        "heading": "Overview",
+        "body": "-"
+      },
+      {
+        "heading": "The challenge",
+        "body": "-"
+      },
+      {
+        "heading": "Our approach",
+        "body": "-"
+      },
+      {
+        "heading": "Current stage and progress",
+        "body": "The project is listed as execution in progress in the project database."
+      },
+      {
+        "heading": "Roadmap",
+        "body": "-"
+      },
+      {
+        "heading": "Expected outcomes and impact",
+        "body": "-"
+      },
+      {
+        "heading": "Team and partners",
+        "body": "-"
+      },
+      {
+        "heading": "Resources and collaboration",
+        "body": "-"
+      }
+    ]
+  },
+  {
+    "slug": "python-course",
+    "name": "Python Course",
+    "type": "Course",
+    "contact": "-",
+    "sections": [
+      {
+        "heading": "Overview",
+        "body": "An entry-level Python course listed in BEA’s project database."
+      },
+      {
+        "heading": "The challenge",
+        "body": "-"
+      },
+      {
+        "heading": "Our approach",
+        "body": "-"
+      },
+      {
+        "heading": "Current stage and progress",
+        "body": "The course is listed as execution in progress."
+      },
+      {
+        "heading": "Roadmap",
+        "body": "-"
+      },
+      {
+        "heading": "Expected outcomes and impact",
+        "body": "-"
+      },
+      {
+        "heading": "Team and partners",
+        "body": "-"
+      },
+      {
+        "heading": "Resources and collaboration",
+        "body": "-"
+      }
+    ]
+  },
+  {
+    "slug": "bci-course",
+    "name": "BCI Course",
+    "type": "Course",
+    "contact": "-",
+    "sections": [
+      {
+        "heading": "Overview",
+        "body": "An introductory course concept exploring brain–computer interfaces (BCIs) through practical work on motor imagery."
+      },
+      {
+        "heading": "The challenge",
+        "body": "Help students learn how to acquire and process brain-signal data and explore BCI applications."
+      },
+      {
+        "heading": "Our approach",
+        "body": "The proposed course combines teaching, practical exercises and a project using an EMOTIV device, with Python as a foundation."
+      },
+      {
+        "heading": "Current stage and progress",
+        "body": "The course is listed as execution in progress. The available detailed plan is preliminary and needs an update."
+      },
+      {
+        "heading": "Roadmap",
+        "body": "The initial plan proposes preparing teaching material, testing the acquisition and processing pipeline, and delivering guided practical sessions."
+      },
+      {
+        "heading": "Expected outcomes and impact",
+        "body": "Practical experience with BCI data acquisition, processing and motor-imagery applications."
+      },
+      {
+        "heading": "Team and partners",
+        "body": "The preliminary plan proposes tutors with theoretical and practical BCI knowledge. Current team: -"
+      },
+      {
+        "heading": "Resources and collaboration",
+        "body": "The project notes refer to an EMOTIV device acquired using Politecnico funding. Current support needs: -"
+      }
+    ]
+  },
+  {
+    "slug": "microfluidica-tdm",
+    "name": "Microfluidica TDM",
+    "type": "Project",
+    "contact": "-",
+    "sections": [
+      {
+        "heading": "Overview",
+        "body": "A research project exploring a microfluidic device concept for therapeutic drug monitoring (TDM) of vancomycin and gentamicin."
+      },
+      {
+        "heading": "The challenge",
+        "body": "The project examines whether a small sample could support the monitoring of two antibiotics through a single integrated workflow."
+      },
+      {
+        "heading": "Our approach",
+        "body": "The proposed chip would separate plasma and divide the sample into two channels, exploring electrochemical detection for vancomycin and optical detection for gentamicin. These are concepts to investigate."
+      },
+      {
+        "heading": "Current stage and progress",
+        "body": "The project is listed as execution in progress. The available project document describes a concept and simulation phase; current results need confirmation."
+      },
+      {
+        "heading": "Roadmap",
+        "body": "The documented plan includes literature and patent research, chip design, flow and diffusion simulations, assessment of detection methods and a final report."
+      },
+      {
+        "heading": "Expected outcomes and impact",
+        "body": "Planned outputs include a CAD concept, simulation results, a comparison with existing approaches and a development roadmap."
+      },
+      {
+        "heading": "Team and partners",
+        "body": "The proposed roles cover project management, literature and patent research, CAD and simulation, detection methods, and documentation. Current named members: -"
+      },
+      {
+        "heading": "Resources and collaboration",
+        "body": "The plan mentions CAD tools and COMSOL Multiphysics. Confirmed budget and collaboration needs: -"
+      }
+    ]
+  },
+  {
+    "slug": "invox",
+    "name": "InVox",
+    "type": "Project",
+    "contact": "-",
+    "sections": [
+      {
+        "heading": "Overview",
+        "body": "A BEA and PMDS project developing a wearable concept for an inner-speech interface."
+      },
+      {
+        "heading": "The challenge",
+        "body": "Explore alternative ways for people with speech difficulties to communicate."
+      },
+      {
+        "heading": "Our approach",
+        "body": "The team is exploring a wearable device that captures signals and micro-movements associated with the intention to speak, with the aim of decoding them into text or voice commands."
+      },
+      {
+        "heading": "Current stage and progress",
+        "body": "An October 2026 presentation reports an initial prototype, data collection and tests of model training. The latest results need confirmation."
+      },
+      {
+        "heading": "Roadmap",
+        "body": "The presentation describes testing additional sensors and improving the approach towards an advanced prototype. Current milestones: -"
+      },
+      {
+        "heading": "Expected outcomes and impact",
+        "body": "A more advanced prototype and a better understanding of the sensing and machine-learning pipeline."
+      },
+      {
+        "heading": "Team and partners",
+        "body": "The project is presented as a collaboration between BEA and PMDS, bringing together hardware, software and product-design skills. Named members: -"
+      },
+      {
+        "heading": "Resources and collaboration",
+        "body": "The October 2026 presentation reports €2,000 from a TEF grant and sensors and materials from Politecnico. Current resource needs: -"
+      }
+    ]
+  },
+  {
+    "slug": "bea-polimi-innovators",
+    "name": "BEA × PoliMi Innovators",
+    "type": "Project",
+    "contact": "-",
+    "sections": [
+      {
+        "heading": "Overview",
+        "body": "A collaboration connecting BEA’s biomedical community with the PoliMi Innovators ecosystem and opportunities in MedTech and health innovation."
+      },
+      {
+        "heading": "The challenge",
+        "body": "Bring students, researchers, clinicians, startups and companies together around real needs and innovation."
+      },
+      {
+        "heading": "Our approach",
+        "body": "BEA contributes through events, meetings and interdisciplinary projects, supporting connections between the biomedical community and the wider programme."
+      },
+      {
+        "heading": "Current stage and progress",
+        "body": "The initiative is listed as execution in progress. Individual activities and arrangements need confirmation."
+      },
+      {
+        "heading": "Roadmap",
+        "body": "The programme notes describe planned activities including clinical-needs discussions, community connections and a MedTech day. Dates and details should be confirmed."
+      },
+      {
+        "heading": "Expected outcomes and impact",
+        "body": "Opportunities for interdisciplinary teams to meet, explore needs and develop ideas in health innovation."
+      },
+      {
+        "heading": "Team and partners",
+        "body": "BEA and PoliMi Innovators. Named project team and additional partners: -"
+      },
+      {
+        "heading": "Resources and collaboration",
+        "body": "Potential collaboration includes expertise, mentorship and connections. Confirmed support needs: -"
+      }
+    ]
+  }
+]
