@@ -2,3 +2,6 @@
 
 /* Keep all project headings readable against the dark background. */
 .cover, .projectPage, .card, .identity h1, .details h2 { color: #fff; }
+
+/* Darker cards and mixed-case titles for clear, compact labels. */
+.card{background:#00000a}.card:hover{background:#0b0a25}.card h2{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-transform:none}.identity h1{text-transform:none;overflow-wrap:anywhere}
