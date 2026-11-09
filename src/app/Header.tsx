@@ -39,7 +39,7 @@ const Header: FC<HeaderProps> = ({ settings }) => {
 
   return (
     <header className={`sticky top-0 z-50 w-full py-4 lg:py-6 bg-transparent backdrop-blur-md border-b transition-colors ${scrolled ? "border-white/40" : "border-transparent"}`}>
-      <nav className="mx-auto flex items-center justify-between">
+      <nav className="mx-auto flex w-full items-center justify-between px-5 md:max-w-3xl md:px-6 lg:max-w-5xl lg:px-10 xl:max-w-[1200px] xl:px-12">
         {/* LOGO */}
         <div className="shrink-0 w-12 lg:w-16">
           <Link href="/">
@@ -100,7 +100,7 @@ const Header: FC<HeaderProps> = ({ settings }) => {
 
       {/* MOBILE MENU */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`mx-auto w-full px-5 md:max-w-3xl md:px-6 lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           mobileMenuOpen
             ? "max-h-[400px] opacity-100 mt-4"
             : "max-h-0 opacity-0"
