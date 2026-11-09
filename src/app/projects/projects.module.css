@@ -5,3 +5,7 @@
 
 /* Darker cards and mixed-case titles for clear, compact labels. */
 .card{background:#00000a}.card:hover{background:#0b0a25}.card h2{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-transform:none}.identity h1{text-transform:none;overflow-wrap:anywhere}
+
+/* Translucent card surfaces keep their content fully opaque. */
+.card { background: rgba(0, 0, 10, .5); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.card:hover { background: rgba(11, 10, 37, .5); }
