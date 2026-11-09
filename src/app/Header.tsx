@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { asLink, Content } from "@prismicio/client";
 import { usePathname } from "next/navigation";
@@ -13,6 +13,13 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ settings }) => {
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 0);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
   const isActive = (field: Parameters<typeof asLink>[0]) => {
     const href = asLink(field);
     if (!href) return false;
@@ -31,7 +38,7 @@ const Header: FC<HeaderProps> = ({ settings }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="w-full py-4 lg:py-6 bg-transparent relative">
+    <header className={`sticky top-0 z-50 w-full py-4 lg:py-6 bg-[#010017]/95 backdrop-blur-md border-b transition-colors ${scrolled ? "border-white/40" : "border-transparent"}`}>
       <nav className="mx-auto flex items-center justify-between">
         {/* LOGO */}
         <div className="shrink-0 w-12 lg:w-16">
