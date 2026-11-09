@@ -3,7 +3,8 @@
 
 import { FC, useState } from "react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import { Content } from "@prismicio/client";
+import { asLink, Content } from "@prismicio/client";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 interface HeaderProps {
@@ -11,6 +12,19 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({ settings }) => {
+  const pathname = usePathname();
+  const isActive = (field: Parameters<typeof asLink>[0]) => {
+    const href = asLink(field);
+    if (!href) return false;
+    let path: string;
+    try {
+      const url = new URL(href, "https://www.beapolimi.it");
+      if (url.hostname !== "www.beapolimi.it" && url.hostname !== "beapolimi.it" && !href.startsWith("/")) return false;
+      path = url.pathname.replace(/\/+$/, "") || "/";
+    } catch { return false; }
+    const current = (pathname || "/").replace(/\/+$/, "") || "/";
+    return path === "/" ? current === "/" : current === path || current.startsWith(`${path}/`);
+  };
   const navigationLinks = settings.data.links || [];
   const ctaButton = settings.data.button;
   const logo = settings.data.logo;
@@ -35,7 +49,8 @@ const Header: FC<HeaderProps> = ({ settings }) => {
             <div key={index}>
               <PrismicNextLink
                 field={item.link}
-                className="text-gray-400 text-sm hover:text-gray-300 font-extralight neutralFace"
+                aria-current={isActive(item.link) ? "page" : undefined}
+                className={`text-sm font-extralight neutralFace transition-opacity hover:opacity-100 ${isActive(item.link) ? "text-white opacity-100" : "text-white opacity-50"}`}
               />
             </div>
           ))}
@@ -46,7 +61,8 @@ const Header: FC<HeaderProps> = ({ settings }) => {
           {ctaButton && (
             <PrismicNextLink
               field={ctaButton}
-              className="inline-block px-4 py-3 border border-white rounded-lg text-white uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all duration-300"
+              aria-current={isActive(ctaButton) ? "page" : undefined}
+              className={`inline-block px-4 py-3 border border-white rounded-lg text-white uppercase tracking-widest text-xs hover:bg-white hover:text-black hover:opacity-100 transition-all duration-300 ${isActive(ctaButton) ? "opacity-100" : "opacity-50"}`}
             />
           )}
         </div>
@@ -88,7 +104,8 @@ const Header: FC<HeaderProps> = ({ settings }) => {
             <div key={index} onClick={() => setMobileMenuOpen(false)}>
               <PrismicNextLink
                 field={item.link}
-                className="text-gray-300 text-base hover:text-white font-extralight neutralFace"
+                aria-current={isActive(item.link) ? "page" : undefined}
+                className={`text-base font-extralight neutralFace transition-opacity hover:opacity-100 ${isActive(item.link) ? "text-white opacity-100" : "text-white opacity-50"}`}
               />
             </div>
           ))}
@@ -97,7 +114,8 @@ const Header: FC<HeaderProps> = ({ settings }) => {
             <div onClick={() => setMobileMenuOpen(false)}>
               <PrismicNextLink
                 field={ctaButton}
-                className="inline-block px-6 py-3 border border-white rounded-lg text-white uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all duration-300 mt-2"
+                aria-current={isActive(ctaButton) ? "page" : undefined}
+                className={`inline-block px-6 py-3 border border-white rounded-lg text-white uppercase tracking-widest text-xs hover:bg-white hover:text-black hover:opacity-100 transition-all duration-300 mt-2 ${isActive(ctaButton) ? "opacity-100" : "opacity-50"}`}
               />
             </div>
           )}
