@@ -73,13 +73,13 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
 
                 <div className="mt-4">
                   <div className="text-gray-400 text-xs mb-1">
-                    <PrismicRichText field={card.category} />
+                    {asText(card.category).trim() ? <PrismicRichText field={card.category} /> : "-"}
                   </div>
                   <div className="text-white text-lg font-light mb-2">
                     <PrismicRichText field={card.title} />
                   </div>
                   <div className="text-gray-300 text-sm">
-                    <PrismicRichText field={card.description} />
+                    {asText(card.description).trim() ? <PrismicRichText field={card.description} /> : "-"}
                   </div>
                 </div>
               </article>
@@ -120,14 +120,14 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                   <div className="space-y-3">
                     <div>
                       <div className="text-gray-400 text-xs mb-1">
-                        <PrismicRichText field={currentCard.category} />
+                        {asText(currentCard.category).trim() ? <PrismicRichText field={currentCard.category} /> : "-"}
                       </div>
                       <div className="text-white text-lg font-light">
                         <PrismicRichText field={currentCard.title} />
                       </div>
                     </div>
                     <div className="text-gray-300 text-sm font-light">
-                      <PrismicRichText field={currentCard.description} />
+                      {asText(currentCard.description).trim() ? <PrismicRichText field={currentCard.description} /> : "-"}
                     </div>
                   </div>
                 </div>
@@ -147,13 +147,13 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                       </div>
                       <div className="mt-4 space-y-2">
                         <div className="text-gray-400 text-xs">
-                          <PrismicRichText field={card.category} />
+                          {asText(card.category).trim() ? <PrismicRichText field={card.category} /> : "-"}
                         </div>
                         <div className="text-white text-lg font-light">
                           <PrismicRichText field={card.title} />
                         </div>
                         <div className="text-gray-300 text-sm font-light">
-                          <PrismicRichText field={card.description} />
+                          {asText(card.description).trim() ? <PrismicRichText field={card.description} /> : "-"}
                         </div>
                       </div>
                     </article>
@@ -176,14 +176,14 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                   <div className="w-1/2 flex flex-col justify-center text-left space-y-8 py-4">
                     <div>
                       <div className="text-gray-400 text-xs mb-2">
-                        <PrismicRichText field={currentCard.category} />
+                        {asText(currentCard.category).trim() ? <PrismicRichText field={currentCard.category} /> : "-"}
                       </div>
                       <div className="text-white text-xl font-light">
                         <PrismicRichText field={currentCard.title} />
                       </div>
                     </div>
                     <div className="text-gray-300 text-sm font-light">
-                      <PrismicRichText field={currentCard.description} />
+                      {asText(currentCard.description).trim() ? <PrismicRichText field={currentCard.description} /> : "-"}
                     </div>
 
                     <div>
