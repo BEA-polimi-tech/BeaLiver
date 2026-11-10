@@ -15,14 +15,26 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
   // Preserve existing CMS images and content while filling out the project list.
   const normalise = (value: string) => value.toLowerCase().replace(/[^a-z0-9]/g, "");
   const paragraph = (value: string) => [{ type: "paragraph" as const, text: value || "-", spans: [] }];
+  const descriptions: Record<string, string> = {
+    "leg-aid-exoskeleton": "Students combine mechanics, electronics and control to build a hip-assist exoskeleton based on the open-source OpenExo platform.",
+    "bea-band": "A student team is developing a wearable that brings together physiological and motion sensors, with a focus on compact design and local data processing.",
+    "3d-printing-course": "A hands-on introduction to 3D printing, from selecting materials and preparing digital models to slicing, printing and evaluating the finished component.",
+    "fes-bike": "-",
+    "meeva": "-",
+    "python-course": "An introductory Python course for students. Further details about the current edition are to be confirmed.",
+    "bci-course": "A proposed practical introduction to brain–computer interfaces, exploring motor imagery and the acquisition and processing of brain-signal data.",
+    "microfluidica-tdm": "A research project exploring a microfluidic chip concept for monitoring two antibiotics, combining chip design, simulations and investigation of detection methods.",
+    "invox": "A BEA and PMDS project exploring a wearable interface that uses signals associated with the intention to speak to support communication.",
+    "bea-polimi-innovators": "A collaboration helping students explore and develop biomedical and MedTech ideas through practical formats, peer exchange and connections with the innovation ecosystem.",
+  };
   const carouselCards = projects.map((project) => {
     const existing = cards.find((card) => normalise(asText(card.title)) === normalise(project.name));
-    if (existing) return existing;
+    if (existing) return { ...existing, description: paragraph(descriptions[project.slug] || "-") };
     return {
       image: {},
       category: paragraph(project.type),
       title: paragraph(project.name),
-      description: paragraph(project.sections.find((section) => section.heading === "Overview")?.body || "-"),
+      description: paragraph(descriptions[project.slug] || "-"),
       competenze: paragraph("-"),
       tecnologyimg: {},
     } as unknown as (typeof cards)[number];
