@@ -1,7 +1,8 @@
 "use client"; // Necessario per usare useState in Next.js (App Router)
 
 import { FC, useState } from "react";
-import { Content } from "@prismicio/client";
+import { asText, Content } from "@prismicio/client";
+import projects from "@/app/projects/projects.json";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Image from "next/image";
@@ -11,17 +12,32 @@ export type HpOurProjectsProps = SliceComponentProps<Content.HpOurProjectsSlice>
 const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const cards = slice.primary.cards ?? [];
-  const hasCards = cards.length > 0;
-  const currentCard = hasCards ? cards[currentIndex] : null;
+  // Preserve existing CMS images and content while filling out the project list.
+  const normalise = (value: string) => value.toLowerCase().replace(/[^a-z0-9]/g, "");
+  const paragraph = (value: string) => [{ type: "paragraph" as const, text: value || "-", spans: [] }];
+  const carouselCards = projects.map((project) => {
+    const existing = cards.find((card) => normalise(asText(card.title)) === normalise(project.name));
+    if (existing) return existing;
+    return {
+      image: {},
+      category: paragraph(project.type),
+      title: paragraph(project.name),
+      description: paragraph(project.sections.find((section) => section.heading === "Overview")?.body || "-"),
+      competenze: paragraph("-"),
+      tecnologyimg: {},
+    } as unknown as (typeof cards)[number];
+  });
+  const hasCards = carouselCards.length > 0;
+  const currentCard = hasCards ? carouselCards[currentIndex] : null;
 
   const nextCard = () => {
     if (!hasCards) return;
-    setCurrentIndex((prev) => (prev + 1) % cards.length);
+    setCurrentIndex((prev) => (prev + 1) % carouselCards.length);
   };
 
   const prevCard = () => {
     if (!hasCards) return;
-    setCurrentIndex((prev) => (prev - 1 + cards.length) % cards.length);
+    setCurrentIndex((prev) => (prev - 1 + carouselCards.length) % carouselCards.length);
   };
 
   return (
@@ -50,11 +66,9 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
             {cards.map((card, idx) => (
               <article key={idx} className="flex flex-col">
                 <div className="w-full aspect-video rounded-lg overflow-hidden bg-gray-800">
-                  <PrismicNextImage
-                    field={card.image}
+                  {card.image?.url ? <PrismicNextImage field={card.image}
                     className="object-cover w-full h-full"
-                    imgixParams={{ fit: "crop" }}
-                  />
+                    imgixParams={{ fit: "crop" }} /> : <div className="w-full h-full flex items-center justify-center bg-gray-800 text-gray-300" aria-label="Image unavailable">-</div>}
                 </div>
 
                 <div className="mt-4">
@@ -98,12 +112,10 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
               <div className="block md:hidden">
                 <div className="flex flex-col gap-4">
                   <div className="w-full relative aspect-4/3 rounded-lg overflow-hidden shadow-2xl">
-                    <PrismicNextImage
-                      field={currentCard.image}
+                    {currentCard.image?.url ? <PrismicNextImage field={currentCard.image}
                       className="object-cover w-full h-full"
                       imgixParams={{ fit: "crop" }}
-                      priority
-                    />
+                      priority /> : <div className="w-full h-full flex items-center justify-center bg-gray-800 text-gray-300" aria-label="Image unavailable">-</div>}
                   </div>
                   <div className="space-y-3">
                     <div>
@@ -124,16 +136,14 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
               {/* TABLET: 2 card compatte affiancate (visibile solo md → lg) */}
               <div className="hidden md:grid md:grid-cols-2 md:gap-6 lg:hidden">
                 {[0, 1].map((offset) => {
-                  const card = cards[(currentIndex + offset) % cards.length];
+                  const card = carouselCards[(currentIndex + offset) % carouselCards.length];
                   return (
                     <article key={offset} className="flex flex-col">
                       <div className="w-full aspect-video rounded-lg overflow-hidden bg-gray-800 shadow-xl">
-                        <PrismicNextImage
-                          field={card.image}
+                        {card.image?.url ? <PrismicNextImage field={card.image}
                           className="object-cover w-full h-full"
                           imgixParams={{ fit: "crop" }}
-                          priority={offset === 0}
-                        />
+                          priority={offset === 0} /> : <div className="w-full h-full flex items-center justify-center bg-gray-800 text-gray-300" aria-label="Image unavailable">-</div>}
                       </div>
                       <div className="mt-4 space-y-2">
                         <div className="text-gray-400 text-xs">
@@ -156,12 +166,10 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                 <div className="flex flex-row gap-16 items-start">
                   {/* Sinistra: Immagine */}
                   <div className="w-1/2 relative aspect-square rounded-lg overflow-hidden shadow-2xl">
-                    <PrismicNextImage
-                      field={currentCard.image}
+                    {currentCard.image?.url ? <PrismicNextImage field={currentCard.image}
                       className="object-cover w-full h-full"
                       imgixParams={{ fit: "crop" }}
-                      priority
-                    />
+                      priority /> : <div className="w-full h-full flex items-center justify-center bg-gray-800 text-gray-300" aria-label="Image unavailable">-</div>}
                   </div>
 
                   {/* Destra: Contenuto Testuale */}
@@ -184,7 +192,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                       </div>
                       <div className="text-gray-300 text-sm font-light">
                         {/* @ts-expect-error competenze exists only in default variant */}
-                        <PrismicRichText field={currentCard.competenze} />
+                        <PrismicRichText field={currentCard.competenze?.length ? currentCard.competenze : paragraph("-")} />
                       </div>
                     </div>
                     <div>
@@ -193,7 +201,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                       </div>
                       <div>
                         {/* @ts-expect-error tecnologyimg exists only in default variant */}
-                        <PrismicNextImage field={currentCard.tecnologyimg} />
+                        {currentCard.tecnologyimg?.url ? <PrismicNextImage field={currentCard.tecnologyimg} /> : "-"}
                       </div>
                     </div>
                   </div>
