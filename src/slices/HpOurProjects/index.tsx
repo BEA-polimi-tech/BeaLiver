@@ -29,7 +29,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
   };
   const carouselCards = projects.map((project) => {
     const existing = cards.find((card) => normalise(asText(card.title)) === normalise(project.name));
-    if (existing) return { ...existing, description: paragraph(descriptions[project.slug] || "-") };
+    if (existing) return { ...existing, description: paragraph(descriptions[project.slug] || "-") } as (typeof cards)[number];
     return {
       image: {},
       category: paragraph(project.type),
