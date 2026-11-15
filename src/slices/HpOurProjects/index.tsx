@@ -24,7 +24,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
     "python-course": "An introductory Python course for students. Further details about the current edition are to be confirmed.",
     "bci-course": "A proposed practical introduction to brain–computer interfaces, exploring motor imagery and the acquisition and processing of brain-signal data.",
     "invox": "A BEA and PMDS project exploring a wearable interface that uses signals associated with the intention to speak to support communication.",
-    "bea-polimi-innovators": "A collaboration helping students explore and develop biomedical and MedTech ideas through practical formats, peer exchange and connections with the innovation ecosystem.",
+    "bea-polimi-innovators": "Students bridge biomedical engineering, clinical needs, and entrepreneurship through MedTech meetups, hospital collaborations, and innovation challenges, supported by the Polimi Innovators ecosystem.",
   };
   // Temporary Unsplash photos illustrate subjects, not BEA prototypes.
   const temporaryImages: Record<string, string> = {
@@ -48,10 +48,10 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
   );
   const carouselCards = projects.map((project) => {
     const existing = cards.find((card) => normalise(asText(card.title)) === normalise(project.name));
-    if (existing) return { ...existing, description: paragraph(descriptions[project.slug] || "-") } as (typeof cards)[number];
+    if (existing) return { ...existing, category: project.slug === "bea-polimi-innovators" ? paragraph("All Levels") : existing.category, description: paragraph(descriptions[project.slug] || "-") } as (typeof cards)[number];
     return {
       image: {},
-      category: paragraph(project.type),
+      category: paragraph(project.slug === "bea-polimi-innovators" ? "All Levels" : project.type),
       title: paragraph(project.name),
       description: paragraph(descriptions[project.slug] || "-"),
       competenze: paragraph("-"),
@@ -65,6 +65,33 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
       </div>
       <div><div className="text-gray-400 text-xs mb-2">Technology:</div>
         <div className="text-gray-300 text-sm font-light">Autodesk Fusion, Bambu Studio, 3D printing.</div>
+      </div>
+    </>
+  );
+  const pieDetails = (
+    <>
+      <div>
+        <div className="text-gray-400 text-xs mb-2">Competences:</div>
+        <div className="text-gray-300 text-sm font-light">
+          <p>Required: None (open to all backgrounds; interest in MedTech, healthcare innovation, and startups).</p>
+          <p>Acquired: Clinical needs analysis, MedTech venture building, pitching, partnership &amp; event management.</p>
+        </div>
+      </div>
+      <div>
+        <div className="text-gray-400 text-xs mb-2">Technology:</div>
+        <div className="flex flex-wrap gap-5 text-white text-xs items-center">
+          <span className="flex items-center gap-2">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M12 4a3 3 0 0 0-5.7-1.3A3.5 3.5 0 0 0 4 8.8a3.5 3.5 0 0 0 .7 6.4A3.5 3.5 0 0 0 9 20a3 3 0 0 0 3-3V4Zm0 0a3 3 0 0 1 5.7-1.3A3.5 3.5 0 0 1 20 8.8a3.5 3.5 0 0 1-.7 6.4A3.5 3.5 0 0 1 15 20a3 3 0 0 1-3-3M8 8.5c1.2 0 2 .7 2 2M16 8.5c-1.2 0-2 .7-2 2M7 15c1.1 0 2-.6 2-1.7M17 15c-1.1 0-2-.6-2-1.7"/></svg> LLMs
+          </span>
+          <span className="flex items-center gap-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="https://cdn.simpleicons.org/python/ffffff" width="26" height="26" alt="" /> Python
+          </span>
+          <span className="flex items-center gap-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="https://cdn.simpleicons.org/notion/ffffff" width="26" height="26" alt="" /> Notion
+          </span>
+        </div>
       </div>
     </>
   );
@@ -171,6 +198,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                       {asText(currentCard.description).trim() ? <PrismicRichText field={currentCard.description} /> : "-"}
                     </div>
                     {projects[currentIndex].slug === "3d-printing-course" && courseDetails}
+                    {projects[currentIndex].slug === "bea-polimi-innovators" && pieDetails}
                   </div>
                 </div>
               </div>
@@ -198,6 +226,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                           {asText(card.description).trim() ? <PrismicRichText field={card.description} /> : "-"}
                         </div>
                         {projects[(currentIndex + offset) % projects.length].slug === "3d-printing-course" && courseDetails}
+                        {projects[(currentIndex + offset) % projects.length].slug === "bea-polimi-innovators" && pieDetails}
                       </div>
                     </article>
                   );
@@ -229,7 +258,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                       {asText(currentCard.description).trim() ? <PrismicRichText field={currentCard.description} /> : "-"}
                     </div>
 
-                    {projects[currentIndex].slug === "3d-printing-course" ? courseDetails : (
+                    {projects[currentIndex].slug === "3d-printing-course" ? courseDetails : projects[currentIndex].slug === "bea-polimi-innovators" ? pieDetails : (
                       <>
                     <div>
                       <div className="text-gray-400 text-xs mb-2">
