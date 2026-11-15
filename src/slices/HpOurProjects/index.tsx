@@ -66,7 +66,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
       <div><div className="text-gray-400 text-xs mb-2">Technology:</div>
         <div className="flex flex-wrap items-center gap-4 text-white">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="https://cdn.simpleicons.org/autodeskfusion/ffffff" className="h-10 w-10 object-contain" alt="Autodesk Fusion" title="Autodesk Fusion" />
+          <img src="https://cdn.simpleicons.org/autodesk/ffffff" className="h-10 w-10 object-contain" alt="Autodesk Fusion" title="Autodesk Fusion" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="https://cdn.simpleicons.org/bambulab/ffffff" className="h-10 w-10 object-contain" alt="Bambu Studio" title="Bambu Studio" />
           <svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" role="img" aria-label="3D printing"><title>3D printing</title><path d="M4 21V3h16v18M3 21h18M7 18h10M8 4v4h8V4M9 8v3l3 2 3-2V8M12 13v2M9 16h6" /></svg>
