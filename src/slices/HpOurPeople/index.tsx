@@ -86,8 +86,8 @@ const HpPeople: FC<HpPeopleProps> = ({ slice }) => {
               className="flex flex-col sm:flex-row gap-4 md:gap-8 items-center sm:items-start"
             >
               <div className="w-28 md:w-36 shrink-0 aspect-square relative overflow-hidden">
-                {asText(item.name) === "David Baciu" ? (
-                  <Image src="/Images/board/david-baciu.jpg" alt="David Baciu" fill sizes="144px" className="object-cover object-top w-full h-full filter brightness-75" />
+                {["David Baciu", "Federico Marrone", "Federico Giacobone"].includes(asText(item.name)) ? (
+                  <Image src={asText(item.name) === "David Baciu" ? "/Images/board/david-baciu.jpg" : asText(item.name) === "Federico Marrone" ? "/Images/board/federico-marrone.jpg" : "/Images/board/federico-giacobone.jpg"} alt={asText(item.name)} fill sizes="144px" className="object-cover object-top w-full h-full filter brightness-75" />
                 ) : item.person_image?.url ? (
                   <PrismicNextImage
                     field={item.person_image}
