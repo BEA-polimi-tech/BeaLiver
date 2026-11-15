@@ -10,8 +10,6 @@ const EventsIntroduction: FC<EventsIntroductionProps> = ({ slice }) => {
     above_title,
     title,
     events_description,
-    tracks_title,
-    tracks_description,
   } = slice.primary;
 
   return (
@@ -30,12 +28,6 @@ const EventsIntroduction: FC<EventsIntroductionProps> = ({ slice }) => {
       </div>
       <div className="text-sm md:text-base mb-10 md:mb-12 lg:mb-16">
         <PrismicRichText field={events_description} />
-      </div>
-      <div className="text-lg md:text-xl mb-4 md:mb-5 lg:mb-6">
-        <PrismicRichText field={tracks_title} />
-      </div>
-      <div className="text-sm md:text-base mb-10 md:mb-16">
-        <PrismicRichText field={tracks_description} />
       </div>
     </section>
   );
