@@ -23,7 +23,6 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
     "meeva": "-",
     "python-course": "An introductory Python course for students. Further details about the current edition are to be confirmed.",
     "bci-course": "A proposed practical introduction to brain–computer interfaces, exploring motor imagery and the acquisition and processing of brain-signal data.",
-    "microfluidica-tdm": "A research project exploring a microfluidic chip concept for monitoring two antibiotics, combining chip design, simulations and investigation of detection methods.",
     "invox": "A BEA and PMDS project exploring a wearable interface that uses signals associated with the intention to speak to support communication.",
     "bea-polimi-innovators": "A collaboration helping students explore and develop biomedical and MedTech ideas through practical formats, peer exchange and connections with the innovation ecosystem.",
   };
@@ -34,7 +33,6 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
     "meeva": "https://images.unsplash.com/photo-1447433865958-f402f562b843?auto=format&fit=crop&w=1200&q=80",
     "python-course": "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=1200&q=80",
     "bci-course": "https://images.unsplash.com/photo-1765256931845-56da0f7db9cb?auto=format&fit=crop&w=1200&q=80",
-    "microfluidica-tdm": "https://images.unsplash.com/photo-1721355007794-16b3591c8d8d?auto=format&fit=crop&w=1200&q=80",
     "invox": "https://images.unsplash.com/photo-1765256931845-56da0f7db9cb?auto=format&fit=crop&w=1200&q=80",
     "bea-polimi-innovators": "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=1200&q=80",
     "leg-aid-exoskeleton": "https://images.unsplash.com/photo-1765256931845-56da0f7db9cb?auto=format&fit=crop&w=1200&q=80",
@@ -106,7 +104,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
       {slice.variation === "projectPage" && (
         <div className="mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-            {cards.map((card, idx) => (
+            {cards.filter((card) => normalise(asText(card.title)) !== "microfluidicatdm").map((card, idx) => (
               <article key={idx} className="flex flex-col">
                 <div className="w-full aspect-video rounded-lg overflow-hidden bg-gray-800">
                   {card.image?.url ? <PrismicNextImage field={card.image}
