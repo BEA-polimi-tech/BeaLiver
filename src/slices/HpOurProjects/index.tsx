@@ -63,7 +63,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
       <div><div className="text-gray-400 text-xs mb-2">Competences:</div>
         <div className="text-gray-300 text-sm font-light">Required: None. Acquired: 3D printing, CAD and material selection.</div>
       </div>
-      <div><div className="text-gray-400 text-xs mb-2">Technology:</div>
+      <div><div className="text-gray-400 text-xs mb-5">Technology:</div>
         <div className="grid grid-cols-[repeat(3,96px)] items-center text-white [&>*]:justify-self-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="https://cdn.simpleicons.org/autodesk/ffffff" className="h-10 w-10 object-contain" alt="Autodesk Fusion" title="Autodesk Fusion" />
@@ -84,7 +84,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
         </div>
       </div>
       <div>
-        <div className="text-gray-400 text-xs mb-2">Technology:</div>
+        <div className="text-gray-400 text-xs mb-5">Technology:</div>
         <div className="grid grid-cols-[repeat(3,96px)] items-center text-white text-xs [&>*]:justify-self-center">
           <span className="relative flex items-center justify-center">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M12 4a3 3 0 0 0-5.7-1.3A3.5 3.5 0 0 0 4 8.8a3.5 3.5 0 0 0 .7 6.4A3.5 3.5 0 0 0 9 20a3 3 0 0 0 3-3V4Zm0 0a3 3 0 0 1 5.7-1.3A3.5 3.5 0 0 1 20 8.8a3.5 3.5 0 0 1-.7 6.4A3.5 3.5 0 0 1 15 20a3 3 0 0 1-3-3M8 8.5c1.2 0 2 .7 2 2M16 8.5c-1.2 0-2 .7-2 2M7 15c1.1 0 2-.6 2-1.7M17 15c-1.1 0-2-.6-2-1.7"/></svg><span className="absolute left-[calc(100%+8px)] whitespace-nowrap">LLMs</span>
