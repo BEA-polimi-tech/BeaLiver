@@ -69,7 +69,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
           <img src="https://cdn.simpleicons.org/autodesk/ffffff" className="h-10 w-10 object-contain" alt="Autodesk Fusion" title="Autodesk Fusion" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="https://cdn.simpleicons.org/bambulab/ffffff" className="h-10 w-10 object-contain" alt="Bambu Studio" title="Bambu Studio" />
-          <svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" role="img" aria-label="3D printing"><title>3D printing</title><path d="M4 21V3h16v18M3 21h18M7 18h10M8 4v4h8V4M9 8v3l3 2 3-2V8M12 13v2M9 16h6" /></svg>
+          <span className="relative flex items-center justify-center"><svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" role="img" aria-label="3D printing"><title>3D printing</title><path d="M4 21V3h16v18M3 21h18M7 18h10M8 4v4h8V4M9 8v3l3 2 3-2V8M12 13v2M9 16h6" /></svg><span className="absolute top-full mt-1 whitespace-nowrap text-xs">3D printing</span></span>
         </div>
       </div>
     </>
@@ -87,7 +87,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
         <div className="text-gray-400 text-xs mb-5">Technology:</div>
         <div className="grid grid-cols-[repeat(3,96px)] items-center text-white text-xs [&>*]:justify-self-center">
           <span className="relative flex items-center justify-center">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M12 4a3 3 0 0 0-5.7-1.3A3.5 3.5 0 0 0 4 8.8a3.5 3.5 0 0 0 .7 6.4A3.5 3.5 0 0 0 9 20a3 3 0 0 0 3-3V4Zm0 0a3 3 0 0 1 5.7-1.3A3.5 3.5 0 0 1 20 8.8a3.5 3.5 0 0 1-.7 6.4A3.5 3.5 0 0 1 15 20a3 3 0 0 1-3-3M8 8.5c1.2 0 2 .7 2 2M16 8.5c-1.2 0-2 .7-2 2M7 15c1.1 0 2-.6 2-1.7M17 15c-1.1 0-2-.6-2-1.7"/></svg><span className="absolute left-[calc(100%+8px)] whitespace-nowrap">LLMs</span>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M12 4a3 3 0 0 0-5.7-1.3A3.5 3.5 0 0 0 4 8.8a3.5 3.5 0 0 0 .7 6.4A3.5 3.5 0 0 0 9 20a3 3 0 0 0 3-3V4Zm0 0a3 3 0 0 1 5.7-1.3A3.5 3.5 0 0 1 20 8.8a3.5 3.5 0 0 1-.7 6.4A3.5 3.5 0 0 1 15 20a3 3 0 0 1-3-3M8 8.5c1.2 0 2 .7 2 2M16 8.5c-1.2 0-2 .7-2 2M7 15c1.1 0 2-.6 2-1.7M17 15c-1.1 0-2-.6-2-1.7"/></svg><span className="absolute top-full mt-1 whitespace-nowrap">LLMs</span>
           </span>
           <span className="flex items-center gap-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
