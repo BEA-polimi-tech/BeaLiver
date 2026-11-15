@@ -27,6 +27,27 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
     "invox": "A BEA and PMDS project exploring a wearable interface that uses signals associated with the intention to speak to support communication.",
     "bea-polimi-innovators": "A collaboration helping students explore and develop biomedical and MedTech ideas through practical formats, peer exchange and connections with the innovation ecosystem.",
   };
+  // Temporary Unsplash photos illustrate subjects, not BEA prototypes.
+  const temporaryImages: Record<string, string> = {
+    "3d-printing-course": "https://images.unsplash.com/photo-1705475025559-ad8efdedc74f?auto=format&fit=crop&w=1200&q=80",
+    "fes-bike": "https://images.unsplash.com/photo-1521824233774-822f829b2fcf?auto=format&fit=crop&w=1200&q=80",
+    "meeva": "https://images.unsplash.com/photo-1447433865958-f402f562b843?auto=format&fit=crop&w=1200&q=80",
+    "python-course": "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=1200&q=80",
+    "bci-course": "https://images.unsplash.com/photo-1765256931845-56da0f7db9cb?auto=format&fit=crop&w=1200&q=80",
+    "microfluidica-tdm": "https://images.unsplash.com/photo-1721355007794-16b3591c8d8d?auto=format&fit=crop&w=1200&q=80",
+    "invox": "https://images.unsplash.com/photo-1765256931845-56da0f7db9cb?auto=format&fit=crop&w=1200&q=80",
+    "bea-polimi-innovators": "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=1200&q=80",
+    "leg-aid-exoskeleton": "https://images.unsplash.com/photo-1765256931845-56da0f7db9cb?auto=format&fit=crop&w=1200&q=80",
+    "bea-band": "https://images.unsplash.com/photo-1765256931845-56da0f7db9cb?auto=format&fit=crop&w=1200&q=80",
+  };
+  const illustrativeImage = (slug: string, name: string) => (
+    <div className="relative w-full h-full">
+      {/* Temporary third-party illustration. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={temporaryImages[slug]} alt={`Illustrative image for ${name}`} className="w-full h-full object-cover" />
+      <span className="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] px-2 py-1 rounded">Illustrative image · Unsplash</span>
+    </div>
+  );
   const carouselCards = projects.map((project) => {
     const existing = cards.find((card) => normalise(asText(card.title)) === normalise(project.name));
     if (existing) return { ...existing, description: paragraph(descriptions[project.slug] || "-") } as (typeof cards)[number];
@@ -127,7 +148,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                     {currentCard.image?.url ? <PrismicNextImage field={currentCard.image}
                       className="object-cover w-full h-full"
                       imgixParams={{ fit: "crop" }}
-                      priority /> : <div className="w-full h-full flex items-center justify-center bg-gray-800 text-gray-300" aria-label="Image unavailable">-</div>}
+                      priority /> : illustrativeImage(projects[currentIndex].slug, projects[currentIndex].name)}
                   </div>
                   <div className="space-y-3">
                     <div>
@@ -155,7 +176,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                         {card.image?.url ? <PrismicNextImage field={card.image}
                           className="object-cover w-full h-full"
                           imgixParams={{ fit: "crop" }}
-                          priority={offset === 0} /> : <div className="w-full h-full flex items-center justify-center bg-gray-800 text-gray-300" aria-label="Image unavailable">-</div>}
+                          priority={offset === 0} /> : illustrativeImage(projects[(currentIndex + offset) % projects.length].slug, projects[(currentIndex + offset) % projects.length].name)}
                       </div>
                       <div className="mt-4 space-y-2">
                         <div className="text-gray-400 text-xs">
@@ -181,7 +202,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                     {currentCard.image?.url ? <PrismicNextImage field={currentCard.image}
                       className="object-cover w-full h-full"
                       imgixParams={{ fit: "crop" }}
-                      priority /> : <div className="w-full h-full flex items-center justify-center bg-gray-800 text-gray-300" aria-label="Image unavailable">-</div>}
+                      priority /> : illustrativeImage(projects[currentIndex].slug, projects[currentIndex].name)}
                   </div>
 
                   {/* Destra: Contenuto Testuale */}
