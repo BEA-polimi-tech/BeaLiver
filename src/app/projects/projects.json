@@ -280,46 +280,6 @@
     ]
   },
   {
-    "slug": "microfluidica-tdm",
-    "name": "Microfluidica TDM",
-    "type": "Project",
-    "contact": "-",
-    "sections": [
-      {
-        "heading": "Overview",
-        "body": "A research project exploring a microfluidic device concept for therapeutic drug monitoring (TDM) of vancomycin and gentamicin."
-      },
-      {
-        "heading": "The challenge",
-        "body": "The project examines whether a small sample could support the monitoring of two antibiotics through a single integrated workflow."
-      },
-      {
-        "heading": "Our approach",
-        "body": "The proposed chip would separate plasma and divide the sample into two channels, exploring electrochemical detection for vancomycin and optical detection for gentamicin. These are concepts to investigate."
-      },
-      {
-        "heading": "Current stage and progress",
-        "body": "The project is listed as execution in progress. The available project document describes a concept and simulation phase; current results need confirmation."
-      },
-      {
-        "heading": "Roadmap",
-        "body": "The documented plan includes literature and patent research, chip design, flow and diffusion simulations, assessment of detection methods and a final report."
-      },
-      {
-        "heading": "Expected outcomes and impact",
-        "body": "Planned outputs include a CAD concept, simulation results, a comparison with existing approaches and a development roadmap."
-      },
-      {
-        "heading": "Team and partners",
-        "body": "The proposed roles cover project management, literature and patent research, CAD and simulation, detection methods, and documentation. Current named members: -"
-      },
-      {
-        "heading": "Resources and collaboration",
-        "body": "The plan mentions CAD tools and COMSOL Multiphysics. Confirmed budget and collaboration needs: -"
-      }
-    ]
-  },
-  {
     "slug": "invox",
     "name": "InVox",
     "type": "Project",
