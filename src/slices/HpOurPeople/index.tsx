@@ -14,14 +14,10 @@ const HpPeople: FC<HpPeopleProps> = ({ slice }) => {
   const cmsPeople = slice.primary.person ?? [];
   const board = [
     { name: "Niccolò Faggiani", role: "President", description: "Leads BEA's strategy and represents the association." },
-    { name: "Federica Rovelli", role: "Vice President", description: "Supports the President and coordinates work across teams." },
-    { name: "Anna Spiller", role: "Secretary", description: "Keeps the association's documentation and administrative processes organised." },
     { name: "Federico Giacobone", role: "Treasurer", description: "Manages the association's finances, budgets and payments." },
     { name: "David Baciu", role: "Projects Division Manager", description: "Coordinates the Projects Division and supports project teams." },
     { name: "Federico Marrone", role: "Travel Division Manager", description: "Coordinates visits, workshops and networking trips." },
     { name: "Giulia Nieri", role: "Events Division Manager", description: "Coordinates BEA's events, talks and student activities." },
-    { name: "Duccio Rutugliano", role: "Communication Division Manager", description: "Coordinates BEA's communications, brand and content." },
-    { name: "Alessandro Paganetti", role: "Internal Relations Division Manager", description: "Supports member experience, onboarding and community activities." },
     { name: "Jastaj Singh", role: "External Relations Division Manager", description: "Coordinates relationships and collaborations with other associations." },
   ];
   const paragraph = (text: string) => [{ type: "paragraph" as const, text, spans: [] }];
@@ -104,10 +100,10 @@ const HpPeople: FC<HpPeopleProps> = ({ slice }) => {
                 <div className="text-white text-lg font-extralight mb-1">
                   <PrismicRichText field={item.name} />
                 </div>
-                <div className="text-gray-500 text-xs mb-6">
+                <div className="text-gray-500 text-sm mb-6">
                   <PrismicRichText field={item.title} />
                 </div>
-                <div className="text-gray-400 text-xs font-light">
+                <div className="text-gray-400 text-sm font-light">
                   <PrismicRichText field={item.description} />
                 </div>
               </div>
