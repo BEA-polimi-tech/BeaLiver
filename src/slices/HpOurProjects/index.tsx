@@ -18,7 +18,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
   const descriptions: Record<string, string> = {
     "leg-aid-exoskeleton": "Students combine mechanics, electronics and control to build a hip-assist exoskeleton based on the open-source OpenExo platform.",
     "bea-band": "A student team is developing a wearable that brings together physiological and motion sensors, with a focus on compact design and local data processing.",
-    "3d-printing-course": "A hands-on introduction to 3D printing, from selecting materials and preparing digital models to slicing, printing and evaluating the finished component.",
+    "3d-printing-course": "A hands-on introduction to 3D printing, from selecting materials and preparing digital models to slicing, printing and evaluating the finished component. Participants apply correct design principles to 3D print an engineered solution to a practical problem.",
     "fes-bike": "-",
     "meeva": "-",
     "python-course": "An introductory Python course for students. Further details about the current edition are to be confirmed.",
@@ -60,6 +60,16 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
       tecnologyimg: {},
     } as unknown as (typeof cards)[number];
   });
+  const courseDetails = (
+    <>
+      <div><div className="text-gray-400 text-xs mb-2">Competences:</div>
+        <div className="text-gray-300 text-sm font-light">Required: None. Acquired: 3D printing, CAD and material selection.</div>
+      </div>
+      <div><div className="text-gray-400 text-xs mb-2">Technology:</div>
+        <div className="text-gray-300 text-sm font-light">Autodesk Fusion, Bambu Studio, 3D printing.</div>
+      </div>
+    </>
+  );
   const hasCards = carouselCards.length > 0;
   const currentCard = hasCards ? carouselCards[currentIndex] : null;
 
@@ -162,6 +172,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                     <div className="text-gray-300 text-sm font-light">
                       {asText(currentCard.description).trim() ? <PrismicRichText field={currentCard.description} /> : "-"}
                     </div>
+                    {projects[currentIndex].slug === "3d-printing-course" && courseDetails}
                   </div>
                 </div>
               </div>
@@ -188,6 +199,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                         <div className="text-gray-300 text-sm font-light">
                           {asText(card.description).trim() ? <PrismicRichText field={card.description} /> : "-"}
                         </div>
+                        {projects[(currentIndex + offset) % projects.length].slug === "3d-printing-course" && courseDetails}
                       </div>
                     </article>
                   );
@@ -219,6 +231,8 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                       {asText(currentCard.description).trim() ? <PrismicRichText field={currentCard.description} /> : "-"}
                     </div>
 
+                    {projects[currentIndex].slug === "3d-printing-course" ? courseDetails : (
+                      <>
                     <div>
                       <div className="text-gray-400 text-xs mb-2">
                         Competences:
@@ -237,6 +251,8 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
                         {currentCard.tecnologyimg?.url ? <PrismicNextImage field={currentCard.tecnologyimg} /> : "-"}
                       </div>
                     </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
