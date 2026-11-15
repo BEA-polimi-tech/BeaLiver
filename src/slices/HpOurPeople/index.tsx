@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, useState } from "react";
-import { Content } from "@prismicio/client";
+import { asText, Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
@@ -11,8 +11,31 @@ export type HpPeopleProps = SliceComponentProps<Content.HpPeopleSlice>;
 
 const HpPeople: FC<HpPeopleProps> = ({ slice }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const items = slice.primary.person;
-  const itemsPerPage = 2;
+  const cmsPeople = slice.primary.person ?? [];
+  const board = [
+    { name: "Niccolò Faggiani", role: "President", description: "Leads BEA's strategy and represents the association." },
+    { name: "Federica Rovelli", role: "Vice President", description: "Supports the President and coordinates work across teams." },
+    { name: "Anna Spiller", role: "Secretary", description: "Keeps the association's documentation and administrative processes organised." },
+    { name: "Federico Giacobone", role: "Treasurer", description: "Manages the association's finances, budgets and payments." },
+    { name: "David Baciu", role: "Projects Division Manager", description: "Coordinates the Projects Division and supports project teams." },
+    { name: "Federico Marrone", role: "Travel Division Manager", description: "Coordinates visits, workshops and networking trips." },
+    { name: "Giulia Nieri", role: "Events Division Manager", description: "Coordinates BEA's events, talks and student activities." },
+    { name: "Duccio Rutugliano", role: "Communication Division Manager", description: "Coordinates BEA's communications, brand and content." },
+    { name: "Alessandro Paganetti", role: "Internal Relations Division Manager", description: "Supports member experience, onboarding and community activities." },
+    { name: "Jastaj Singh", role: "External Relations Division Manager", description: "Coordinates relationships and collaborations with other associations." },
+  ];
+  const paragraph = (text: string) => [{ type: "paragraph" as const, text, spans: [] }];
+  const normalise = (value: string) => value.toLocaleLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").replace(/[^a-z0-9]/g, "");
+  const items = board.map((person) => {
+    const existing = cmsPeople.find((item) => normalise(asText(item.name)) === normalise(person.name));
+    return {
+      ...existing,
+      name: paragraph(person.name),
+      title: paragraph(person.role),
+      description: paragraph(person.description),
+      person_image: existing?.person_image ?? {},
+    } as (typeof cmsPeople)[number];
+  });
   const isPeoplePage = slice.variation === "peoplepage";
 
   const nextSlide = () => {
@@ -67,10 +90,14 @@ const HpPeople: FC<HpPeopleProps> = ({ slice }) => {
               className="flex flex-col sm:flex-row gap-4 md:gap-8 items-center sm:items-start"
             >
               <div className="w-28 md:w-36 shrink-0 aspect-square relative overflow-hidden">
-                <PrismicNextImage
-                  field={item.person_image}
-                  className="object-cover w-full h-full filter brightness-75"
-                />
+                {item.person_image?.url ? (
+                  <PrismicNextImage
+                    field={item.person_image}
+                    className="object-cover w-full h-full filter brightness-75"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-white/5 flex items-center justify-center text-gray-400" aria-label="Portrait unavailable">-</div>
+                )}
               </div>
 
               <div className="flex flex-col text-center sm:text-left">
