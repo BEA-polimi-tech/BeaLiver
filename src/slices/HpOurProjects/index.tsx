@@ -85,11 +85,11 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
           </span>
           <span className="flex items-center gap-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="https://cdn.simpleicons.org/python/ffffff" width="26" height="26" alt="" /> Python
+            <img src="https://cdn.simpleicons.org/python/ffffff" width="26" height="26" alt="Python" />
           </span>
           <span className="flex items-center gap-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="https://cdn.simpleicons.org/notion/ffffff" width="26" height="26" alt="" /> Notion
+            <img src="https://cdn.simpleicons.org/notion/ffffff" width="26" height="26" alt="Notion" />
           </span>
         </div>
       </div>
