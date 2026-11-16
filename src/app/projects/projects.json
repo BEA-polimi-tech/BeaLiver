@@ -81,21 +81,29 @@
   },
   {
     "slug": "3d-printing-course",
-    "name": "3D Printing Course 2.0",
+    "name": "3D Printing Courses",
     "type": "Course",
     "contact": "-",
     "sections": [
       {
         "heading": "Overview",
-        "body": "A practical course introducing students to 3D printing and its engineering applications."
+        "body": "From digital designs to physical prototypes, our beginner and advanced courses introduce students to the possibilities of 3D printing through practical learning and collaborative projects. Participants explore the workflow from 3D modelling to fabrication, building a foundation in FDM printing before progressing to more complex designs, materials and applications."
       },
       {
         "heading": "The challenge",
         "body": "Help students understand the journey from a digital model to a printable physical object."
       },
       {
+        "heading": "Competences",
+        "body": "Required: No previous 3D printing experience for the beginner course; basic CAD and 3D printing knowledge for the advanced course. Acquired: Design for additive manufacturing, material selection, slicing and print preparation, printer operation, troubleshooting, prototyping and teamwork."
+      },
+      {
+        "heading": "Technologies",
+        "body": "FDM 3D printing, Autodesk Fusion 360, PrusaSlicer, 3D scanning, Revo Scan 6."
+      },
+      {
         "heading": "Our approach",
-        "body": "The proposed programme covers printing technologies, materials, modelling, printability, slicing, printer use and analysis of printed results. Group activities apply these skills to a design challenge."
+        "body": "Beginner and advanced courses combine practical learning and collaborative projects, covering 3D modelling, FDM printing, more complex designs, materials and applications."
       },
       {
         "heading": "Current stage and progress",
@@ -107,7 +115,7 @@
       },
       {
         "heading": "Expected outcomes and impact",
-        "body": "Hands-on skills in preparing and evaluating 3D-printed engineering components."
+        "body": "Design for additive manufacturing, material selection, slicing and print preparation, printer operation, troubleshooting, prototyping and teamwork."
       },
       {
         "heading": "Team and partners",

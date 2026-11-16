@@ -18,7 +18,7 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
   const descriptions: Record<string, string> = {
     "leg-aid-exoskeleton": "Students combine mechanics, electronics and control to build a hip-assist exoskeleton based on the open-source OpenExo platform.",
     "bea-band": "A student team is developing a wearable that brings together physiological and motion sensors, with a focus on compact design and local data processing.",
-    "3d-printing-course": "A hands-on introduction to 3D printing, from selecting materials and preparing digital models to slicing, printing and evaluating the finished component. Participants apply correct design principles to 3D print an engineered solution to a practical problem.",
+    "3d-printing-course": "From digital designs to physical prototypes, our beginner and advanced courses introduce students to the possibilities of 3D printing through practical learning and collaborative projects. Participants explore the workflow from 3D modelling to fabrication, building a foundation in FDM printing before progressing to more complex designs, materials and applications.",
     "fes-bike": "-",
     "meeva": "-",
     "python-course": "An introductory Python course for students. Further details about the current edition are to be confirmed.",
@@ -47,11 +47,11 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
     </div>
   );
   const carouselCards = projects.map((project) => {
-    const existing = cards.find((card) => normalise(asText(card.title)) === normalise(project.name));
-    if (existing) return { ...existing, category: project.slug === "bea-polimi-innovators" ? paragraph("All Levels") : existing.category, description: paragraph(descriptions[project.slug] || "-") } as (typeof cards)[number];
+    const existing = cards.find((card) => normalise(asText(card.title)) === normalise(project.name) || (project.slug === "3d-printing-course" && normalise(asText(card.title)) === "3dprintingcourse20"));
+    if (existing) return { ...existing, category: project.slug === "bea-polimi-innovators" ? paragraph("All Levels") : project.slug === "3d-printing-course" ? paragraph("Beginner & Advanced Levels") : existing.category, title: project.slug === "3d-printing-course" ? paragraph("3D Printing Courses") : existing.title, description: paragraph(descriptions[project.slug] || "-") } as (typeof cards)[number];
     return {
       image: {},
-      category: paragraph(project.slug === "bea-polimi-innovators" ? "All Levels" : project.type),
+      category: paragraph(project.slug === "bea-polimi-innovators" ? "All Levels" : project.slug === "3d-printing-course" ? "Beginner & Advanced Levels" : project.type),
       title: paragraph(project.name),
       description: paragraph(descriptions[project.slug] || "-"),
       competenze: paragraph("-"),
@@ -61,15 +61,15 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
   const courseDetails = (
     <>
       <div><div className="text-gray-400 text-xs mb-2">Competences:</div>
-        <div className="text-gray-300 text-sm font-light">Required: None. Acquired: 3D printing, CAD and material selection.</div>
+        <div className="text-gray-300 text-sm font-light"><p>Required: No previous 3D printing experience for the beginner course; basic CAD and 3D printing knowledge for the advanced course.</p><p>Acquired: Design for additive manufacturing, material selection, slicing and print preparation, printer operation, troubleshooting, prototyping and teamwork.</p></div>
       </div>
       <div><div className="text-gray-400 text-xs mb-5">Technology:</div>
-        <div className="grid grid-cols-[repeat(3,96px)] items-center text-white [&>*]:justify-self-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="https://cdn.simpleicons.org/autodesk/ffffff" className="h-10 w-10 object-contain" alt="Autodesk Fusion" title="Autodesk Fusion" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="https://cdn.simpleicons.org/bambulab/ffffff" className="h-10 w-10 object-contain" alt="Bambu Studio" title="Bambu Studio" />
-          <span className="relative flex items-center justify-center"><svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" role="img" aria-label="3D printing"><title>3D printing</title><path d="M4 21V3h16v18M3 21h18M7 18h10M8 4v4h8V4M9 8v3l3 2 3-2V8M12 13v2M9 16h6" /></svg><span className="absolute top-full mt-1 whitespace-nowrap text-xs">3D printing</span></span>
+        <div className="grid grid-cols-[repeat(3,96px)] gap-y-5 text-white text-xs">
+          <div className="flex flex-col items-center gap-1 text-center"><svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" role="img" aria-label="FDM 3D printing"><path d="M4 21V3h16v18M3 21h18M7 18h10M8 4v4h8V4M9 8v3l3 2 3-2V8M12 13v2M9 16h6" /></svg><span>FDM printing</span></div>
+          <div className="flex flex-col items-center gap-1 text-center">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="https://cdn.simpleicons.org/autodesk/ffffff" className="h-10 w-10 object-contain" alt="Autodesk Fusion 360" /><span>Fusion 360</span></div>
+          <div className="flex flex-col items-center gap-1 text-center"><svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" role="img" aria-label="PrusaSlicer"><path d="M4 7 12 3l8 4-8 4-8-4Zm0 5 8 4 8-4M4 17l8 4 8-4" /></svg><span>PrusaSlicer</span></div>
+          <div className="flex flex-col items-center gap-1 text-center"><svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" role="img" aria-label="3D scanning"><path d="M4 8V4h4m8 0h4v4M4 16v4h4m8 0h4v-4M8 9l4-2 4 2v6l-4 2-4-2V9Zm0 0 4 2 4-2m-4 2v6" /></svg><span>3D scanning</span></div>
+          <div className="flex flex-col items-center gap-1 text-center"><svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" role="img" aria-label="Revo Scan 6"><path d="M4 8V4h4m8 0h4v4M4 16v4h4m8 0h4v-4M8 10l4-2 4 2v4l-4 2-4-2v-4Zm0 0 4 2 4-2m-4 2v4" /></svg><span>Revo Scan 6</span></div>
         </div>
       </div>
     </>
