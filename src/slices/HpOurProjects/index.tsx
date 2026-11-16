@@ -64,11 +64,10 @@ const HpOurProjects: FC<HpOurProjectsProps> = ({ slice }) => {
         <div className="text-gray-300 text-sm font-light"><p>Required: No previous 3D printing experience for the beginner course; basic CAD and 3D printing knowledge for the advanced course.</p><p>Acquired: Design for additive manufacturing, material selection, slicing and print preparation, printer operation, troubleshooting, prototyping and teamwork.</p></div>
       </div>
       <div><div className="text-gray-400 text-xs mb-5">Technology:</div>
-        <div className="grid grid-cols-[repeat(3,96px)] gap-y-5 text-white text-xs">
+        <div className="grid grid-cols-4 w-full max-w-[384px] gap-y-5 text-white text-xs">
           <div className="flex flex-col items-center gap-1 text-center"><svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" role="img" aria-label="FDM 3D printing"><path d="M4 21V3h16v18M3 21h18M7 18h10M8 4v4h8V4M9 8v3l3 2 3-2V8M12 13v2M9 16h6" /></svg><span>FDM printing</span></div>
           <div className="flex flex-col items-center gap-1 text-center">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="https://cdn.simpleicons.org/autodesk/ffffff" className="h-10 w-10 object-contain" alt="Autodesk Fusion 360" /><span>Fusion 360</span></div>
           <div className="flex flex-col items-center gap-1 text-center"><svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" role="img" aria-label="PrusaSlicer"><path d="M4 7 12 3l8 4-8 4-8-4Zm0 5 8 4 8-4M4 17l8 4 8-4" /></svg><span>PrusaSlicer</span></div>
-          <div className="flex flex-col items-center gap-1 text-center"><svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" role="img" aria-label="3D scanning"><path d="M4 8V4h4m8 0h4v4M4 16v4h4m8 0h4v-4M8 9l4-2 4 2v6l-4 2-4-2V9Zm0 0 4 2 4-2m-4 2v6" /></svg><span>3D scanning</span></div>
           <div className="flex flex-col items-center gap-1 text-center"><svg className="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" role="img" aria-label="Revo Scan 6"><path d="M4 8V4h4m8 0h4v4M4 16v4h4m8 0h4v-4M8 10l4-2 4 2v4l-4 2-4-2v-4Zm0 0 4 2 4-2m-4 2v4" /></svg><span>Revo Scan 6</span></div>
         </div>
       </div>
