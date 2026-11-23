@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, useRef, useState } from "react";
-import { Content } from "@prismicio/client";
+import { asText, Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Image from "next/image";
@@ -17,12 +17,15 @@ const HpForm: FC<HpFormProps> = ({ slice }) => {
 
   const handleSubmit = async (formData: FormData) => {
     setStatus("submitting");
-    const result = await sendEmail(formData);
-
-    if (result?.success) {
-      setStatus("success");
-      formRef.current?.reset();
-    } else {
+    try {
+      const result = await sendEmail(formData);
+      if (result.success) {
+        setStatus("success");
+        formRef.current?.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
       setStatus("error");
     }
   };
@@ -124,7 +127,7 @@ const HpForm: FC<HpFormProps> = ({ slice }) => {
 
                   {status === "error" && (
                     <p className="text-red-500 text-sm mt-4">
-                      Something went wrong. Please try again.
+                      Your message could not be sent. Please try again or email info@beapolimi.it.
                     </p>
                   )}
                 </div>
@@ -148,7 +151,16 @@ const HpForm: FC<HpFormProps> = ({ slice }) => {
                     />
                   </div>
                   <div className="text-white text-base font-light leading-relaxed max-w-xs">
-                    <PrismicRichText field={info.info_text} />
+                    {(() => {
+                      const text = asText(info.info_text).toLowerCase();
+                      if (text.includes("extrenalrelations") || text.includes("externalrelations")) {
+                        return <>For Collaborations: <a href="mailto:externalrelations@beapolimi.it">externalrelations@beapolimi.it</a></>;
+                      }
+                      if (text.includes("info@beapolimi")) {
+                        return <a href="mailto:info@beapolimi.it">info@beapolimi.it</a>;
+                      }
+                      return <PrismicRichText field={info.info_text} />;
+                    })()}
                   </div>
                 </div>
               ))}
