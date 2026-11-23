@@ -2,39 +2,39 @@
 
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function sendEmail(formData: FormData) {
-  const name = formData.get("name") as string;
-  const email = formData.get("email") as string;
-  const subject = formData.get("subject") as string;
-  const message = formData.get("message") as string;
+  const name = String(formData.get("name") ?? "").trim();
+  const email = String(formData.get("email") ?? "").trim();
+  const subject = String(formData.get("subject") ?? "").trim();
+  const message = String(formData.get("message") ?? "").trim();
 
-  if (!name || !email || !message) {
-    return { error: "Missing required fields" };
+  if (!name || !email || !subject || !message ||
+      name.length > 200 || email.length > 254 || subject.length > 200 || message.length > 10000 ||
+      /[\r\n]/.test(name + email + subject) ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return { success: false };
   }
 
   try {
-    const data = await resend.emails.send({
-      // Importante: Usa un indirizzo del tuo dominio verificato, o 'onboarding@resend.dev' se stai ancora testando senza dominio configurato su Resend
+    if (!process.env.RESEND_API_KEY) {
+      console.error("Contact form email is not configured.");
+      return { success: false };
+    }
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const { error } = await resend.emails.send({
       from: "BEA Polimi Website <noreply@beapolimi.it>",
-      to: ["communication@beapolimi.it"], // La mail di destinazione che mi hai dato
-      subject: `Nuovo messaggio da ${name}: ${subject}`,
-      text: message,
-      html: `
-        <h3>Nuovo messaggio dal sito web</h3>
-        <p><strong>Nome:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Oggetto:</strong> ${subject}</p>
-        <hr />
-        <p><strong>Messaggio:</strong></p>
-        <p>${message.replace(/\n/g, "<br>")}</p>
-      `,
+      to: ["communication@beapolimi.it"],
+      replyTo: email,
+      subject: `Website contact: ${subject}`,
+      text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\n${message}`,
     });
-
-    return { success: true, data };
-  } catch (error) {
-    console.error("Errore invio email:", error);
-    return { error: "Failed to send email" };
+    if (error) {
+      console.error("Contact form email provider rejected the message:", error.name);
+      return { success: false };
+    }
+    return { success: true };
+  } catch {
+    console.error("Contact form email could not be sent.");
+    return { success: false };
   }
 }
